@@ -138,6 +138,7 @@ contract StakedSoccerStarNftV2 is
     // udpate global and token index
     _updateTokenAssetInternal(tokenId, address(this), 0, totalPower);
 
+    totalStaked++;
     uint power = getTokenPower(tokenId);
     totalPower += power;
     userTotalPower[msg.sender] += power;
@@ -178,6 +179,7 @@ contract StakedSoccerStarNftV2 is
     // deducate the power
     totalPower -= power;
     userTotalPower[msg.sender] -= power;
+    totalStaked--;
 
     tokenStakedInfoTb[tokenId].cooldown = block.timestamp;
     tokenStakedInfoTb[tokenId].unclaimed = unclaimedRewards;

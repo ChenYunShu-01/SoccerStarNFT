@@ -9,8 +9,17 @@ contract MockStaked {
     uint public totalStaked;
     uint public totalPower;
     uint public tokenId;
+    mapping(uint => uint) public rewardByTokens;
+    uint[] public tokenIds;
 
-    constructor(){}
+    constructor(){
+      rewardByTokens[0] = 100;
+      rewardByTokens[1] = 200;
+      rewardByTokens[2] = 300;
+      tokenIds.push(0);
+      tokenIds.push(1);
+      tokenIds.push(2);
+    }
     //event Deposit(address sender,uint round, uint amount);
 
     // Trigred to end an reward period
@@ -83,4 +92,36 @@ contract MockStaked {
     emit ClaimReward(msg.sender, tokenId, unclaimedRewards);
     
   }
+
+// Get unclaimed rewards by the specified tokens
+  function getUnClaimedRewardsByToken(uint _tokenId) public view returns(uint){
+    return rewardByTokens[_tokenId];
+  }
+
+
+  // Get unclaimed rewards by a set of the specified tokens
+  function getUnClaimedRewardsByTokens(uint[] memory _tokenIds) 
+  public view returns(uint[] memory amount){
+    uint[] memory unclaimedRewards = new uint[](tokenIds.length);
+
+    for(uint i = 0; i < _tokenIds.length; i++){
+      unclaimedRewards[i] = rewardByTokens[i];
+    }
+
+    return unclaimedRewards;
+  }
+
+  /**
+   * @dev Return the total rewards pending to claim by an staker
+   * @param staker The staker address
+   * @return The rewards
+   */
+  function getUnClaimedRewards(address staker) external view returns (uint256) {
+    uint unclaimedRewards = 0;
+    for(uint i = 0; i < tokenIds.length; i++){
+      unclaimedRewards += rewardByTokens[i];
+    }
+    return unclaimedRewards;
+  }
+
 }

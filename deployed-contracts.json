@@ -1,7 +1,7 @@
 {
   "SoccerStarNft": {
     "hardhat": {
-      "address": "0x8858eeB3DfffA017D4BCE9801D340D36Cf895CCf",
+      "address": "0x038B86d9d8FAFdd0a02ebd1A476432877b0107C8",
       "deployer": "0xc783df8a850f42e7F7e57013759C285caa701eB6"
     },
     "bsc_test": {
@@ -117,6 +117,21 @@
     "bsc_test": {
       "address": "0x920196cd00db9d6E2fEeB4B21Be5E0fe62A322B0",
       "deployer": "0x460ACc177d4b91CCb389A3039a2C8A4bb405E9aC"
+    }
+  },
+  "MockBIB": {
+    "hardhat": {
+      "address": "0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F"
+    }
+  },
+  "MockBUSD": {
+    "hardhat": {
+      "address": "0x8858eeB3DfffA017D4BCE9801D340D36Cf895CCf"
+    }
+  },
+  "MockBIBOracle": {
+    "hardhat": {
+      "address": "0x0078371BDeDE8aAc7DeBfFf451B74c5EDB385Af7"
     }
   }
 }

@@ -31,7 +31,7 @@ const DEFAULT_GAS_PRICE = 50000000000; // 50 gwei
 const HARDFORK = 'istanbul';
 const INFURA_KEY = process.env.INFURA_KEY || '';
 const ALCHEMY_KEY = process.env.ALCHEMY_KEY || '';
-const ETHERSCAN_KEY = process.env.ETHERSCAN_KEY || '';
+const ETHERSCAN_KEY = process.env.ETHERSCAN_KEY || '5855HWUTZBJWWHWR66HXBE2GGG4SESV7W3';
 const MNEMONIC_PATH = "m/44'/60'/0'/0";
 const MNEMONIC = process.env.MNEMONIC || '';
 const MAINNET_FORK = process.env.MAINNET_FORK === 'true';
@@ -47,7 +47,7 @@ const mainnetFork = MAINNET_FORK
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: '0.8.11',
+    version: '0.8.9',
     settings: {
       optimizer: { enabled: true, runs: 200 },
       evmVersion: 'istanbul',
